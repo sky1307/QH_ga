@@ -1,0 +1,8 @@
+pyyaml==5.4.1
+scikit-learn
+matplotlib
+keras==2.4.3
+tensorflow
+pandas
+matplotlib
+numpy
