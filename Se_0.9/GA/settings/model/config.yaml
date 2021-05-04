@@ -24,7 +24,7 @@ model:
   in_dim: 2
   out_dim: 2
   patience: 50
-  batch_size: 128
+  batch_size: 512
   dropout: 0
 
 ssa:

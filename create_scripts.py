@@ -1,0 +1,30 @@
+import glob
+import os
+import shutil
+flex = "cd /home/acc13085dy/QH_ga/xxxxxx/GA"
+script = [
+    "#!/bin/bash",
+    "#$-l rt_G.small=1",
+    "#$-l h_rt=144:00:00",
+    "#$-j y",
+    "#$-cwd",
+    "source /etc/profile.d/modules.sh",
+    "module load gcc/9.3.0 python/3.8/3.8.7 cuda/11.0/11.0.3 cudnn/8.0/8.0.5",
+    "source ~/env_qh/bin/activate",
+    "cd /home/acc13085dy/QH_ga/xxxxxx/GA",
+    "python main.py",
+]
+jobs = glob.glob("/home/acc13085dy/QH_ga/*")
+for job in jobs:
+    name = os.path.basename(job)
+    print(name)
+    if name[0] not in ['I', 'M', 'S', 'C']:
+        continue
+    with open(f"/home/acc13085dy/QH_ga/job_scripts/{name}.sh", "w") as f:
+        script[8] = flex.replace("xxxxxx", name)
+        f.write("\n".join(script))
+    with open(f"/home/acc13085dy/submit_jobs.sh", "a") as f:
+        f.write(f"qsub -g gaa50004 /home/acc13085dy/QH_ga/job_scripts/{name}.sh\n")
+
+        
+ 
