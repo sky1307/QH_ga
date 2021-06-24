@@ -1,7 +1,7 @@
-pyyaml==5.4.1
+pyyaml
 scikit-learn
 matplotlib
-keras==2.4.3
+keras
 tensorflow
 pandas
 matplotlib

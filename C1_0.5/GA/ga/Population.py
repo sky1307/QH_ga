@@ -33,7 +33,7 @@ class Population:
                 if len(preline)<1:
                     break
                 s = preline.split()
-                l = len(s)
+                l = len(s)-2
                 ssa = [int(x) for x in s[0:l-2]]
                 n = int(s[l-2])
                 fitness = float(s[l-1])
@@ -257,7 +257,7 @@ class Population:
         popsorted = sorted(self.pop, key= lambda x : x.value_fitness)
         popchild  = popsorted[0:int(self.size*Population.pselection)]
 
-        k = 0;
+        k = 0
         while k < self.size*(1- Population.pselection):
             a = random.randint(self.size*Population.pselection, self.size*2-1 )
             b = random.randint(self.size*Population.pselection, self.size*2-1 )

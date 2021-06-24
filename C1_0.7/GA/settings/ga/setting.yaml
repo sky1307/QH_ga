@@ -2,7 +2,7 @@
 SIZE_POPULATION: 100
 CONDITION_STOP: 30
 
-populationInit: 'None'
+populationInit: 'log/ga/population0.txt'
 #khoitao
 n: 4 #gia tri khoi tao cua so model con cua ensemble trong khoang [2,n]
 nmax: 10 #gia tri lon nhat cua n
